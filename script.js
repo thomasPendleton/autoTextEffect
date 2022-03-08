@@ -9,11 +9,11 @@ writeText()
 function writeText() {
   textEl.innerText = text.slice(0, idx)
   idx++
-  if (idx > text.length) {
+  const timeout = setTimeout(writeText, speed)
+  if (idx > text.length + 5) {
     idx = 1
+    // clearTimeout(timeout)
   }
-
-  setTimeout(writeText, speed)
 }
 
 speedEl.addEventListener('input', (e) => {
